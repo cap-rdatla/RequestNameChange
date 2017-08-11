@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+        xmlns:cp="http://services.cap.org/interfaces/myaccount/ChangeRequestResults" 
+        xmlns:comm="http://services.cap.org/interfaces/commontypes"
+        targetNamespace="http://services.cap.org/interfaces/myaccount/ChangeRequestResults" 
+        elementFormDefault="qualified" attributeFormDefault="unqualified">
+        <import namespace="http://services.cap.org/interfaces/commontypes" schemaLocation="oramds:/apps/cap/common/xsd/Commontypes.xsd"/>
+    <element name="ChangeRequestResults">
+        <complexType>
+            <sequence>
+                <element name="RequestCode" type="string" minOccurs="0"/>
+                <element name="RequestTitle" type="string" minOccurs="0"/>
+                <element name="RequestDate" type="dateTime" minOccurs="0"/>
+                <element name="RequestedBy" type="string" minOccurs="0"/>
+                <element name="PersonId" type="decimal" minOccurs="0"/>
+                <element name="PersonPartyNumber" type="string" minOccurs="0"/>
+                <element name="PersonFirstName" type="string" minOccurs="0"/>
+                <element name="PersonLastName" type="string" minOccurs="0"/>
+                <element name="CDMReviewOutcome" type="string" minOccurs="0"/>
+                <element name="CDMComments" type="string" minOccurs="0"/>
+                <element name="UpdReturnStatus" type="string" minOccurs="0"/>
+                <element name="UpdReturnMsg" type="string" minOccurs="0"/>
+                <element name="SendData" minOccurs="0">
+                    <complexType>
+                        <sequence>
+                            <element name="PartyId" type="decimal"/>
+                            <element name="DataItem" type="cp:DataItemType" minOccurs="0" maxOccurs="unbounded"/>
+                        </sequence>
+                    </complexType>
+                </element>
+            </sequence>
+        </complexType>
+    </element>
+    <complexType name="DataItemType">
+        <sequence>
+            <element name="Name" type="string" minOccurs="0"/>
+            <element name="OldValue" type="string" minOccurs="0"/>
+            <element name="NewValue" type="string" minOccurs="0"/>
+            <element name="DataType" type="comm:DataTypeEnum" minOccurs="0"/>
+        </sequence>
+    </complexType>
+</schema>

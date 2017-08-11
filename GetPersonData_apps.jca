@@ -1,0 +1,16 @@
+<adapter-config name="GetPersonData" adapter="Oracle Applications Adapter" wsdlLocation="GetPersonData.wsdl" xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata">
+  
+  <connection-factory location="eis/Apps/ebs12" UIConnectionName="EBSDEV2" UIOracleAppType="DBOBJECT" adapterRef=""/>
+  <endpoint-interaction portType="GetPersonData_ptt" operation="GetPersonData">
+    <interaction-spec className="oracle.tip.adapter.apps.AppsStoredProcedureInteractionSpec">
+      <property name="IRepInternalName" value="PLSQL:XXCAP_TCA_UTIL_PKG:FETCH_PERSON_DATA"/>
+      <property name="SchemaName" value="APPS"/>
+      <property name="PackageName" value="XXCAP_TCA_UTIL_PKG"/>
+      <property name="ProcedureName" value="FETCH_PERSON_DATA"/>
+      <property name="Username" value="sysadmin"/>
+      <property name="Responsibility" value="System Administrator"/>
+    </interaction-spec>
+    <output/>
+  </endpoint-interaction>
+
+</adapter-config>

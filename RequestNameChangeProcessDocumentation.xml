@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?oracleBPM version="11.1.1.7.0.0.8" fileRevision="20120217"?>
+<processDocumentation xmlns="http://xmlns.oracle.com/bpm/taskMetadataService/processDocumentation">
+    <component name="RequestNameChangeProcess">
+        <topicDocumentations>
+            <topicDocumentation name="RequestNameChangeProcess">
+                <descriptions>
+                    <description locale="en">RequestNameChangeProcess</description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="ACT10099120168580">
+                <labels>
+                    <label locale="en">Get Person Data</label>
+                </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="ACT10921682911462">
+                <labels>
+                    <label locale="en">Email Result to Request User</label>
+                </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="ACT10921725899468">
+                <labels>
+                    <label locale="en">CDM Review</label>
+                </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="ACT10922733324328">
+                <labels>
+                    <label locale="en">Send Email to CDM</label>
+                </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="ACT10973870270681">
+                <labels>
+                    <label locale="en">Notify Admmin</label>
+                </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="ACT10973889903873">
+                <labels>
+                    <label locale="en">Subprocess</label>
+                </labels>
+            </topicDocumentation>
+            <topicDocumentation name="ACT10973894116840">
+                <labels>
+                    <label locale="en">Notify Admin</label>
+                </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="EVT10973890049195">
+                <labels>
+                    <label locale="en">CatchAll</label>
+                </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="EVT1097389004922">
+                <labels>
+                    <label locale="en">Terminate</label>
+                </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="sf64"/>
+            <topicDocumentation name="sf65"/>
+            <topicDocumentation name="ACT11101953174678">
+                <labels>
+                    <label locale="en">GetRequestorEmailAddr</label>
+                </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="ACT11127568614150">
+                <labels>
+                    <label locale="en">GetMessageNamefromPayload</label>
+                </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="ACT11136996034356">
+                <labels>
+                    <label locale="en">UpdatePersonName</label>
+                </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="ACT11137584421151">
+                <labels>
+                    <label locale="en">Send Email to CDM for HR update</label>
+                </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="ACT11137953647073">
+                <labels>
+                    <label locale="en">GetNewPersonName</label>
+                </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="ACT11139550827535">
+                <labels>
+                    <label locale="en">UpdateResultPayload</label>
+                </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="EVT10095313957719">
+                <labels>
+                    <label locale="en">Start</label>
+                </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="EVT10095313957866">
+                <labels>
+                    <label locale="en">End</label>
+                </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="EVT10957063154829">
+                <labels>
+                    <label locale="en">Terminate</label>
+                </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="GTW10949408195929">
+                <labels>
+                    <label locale="en">ReturnSuccess</label>
+                </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="GTW11101957881154">
+                <labels>
+                    <label locale="en">Check Requestor EmailAddr</label>
+                </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="GTW11127531072816">
+                <labels>
+                    <label locale="en">CheckMessageNameinPayload</label>
+                </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="GTW1113699362669">
+                <labels>
+                    <label locale="en">Name Change Approved?</label>
+                </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="GTW11137563203735">
+                <labels>
+                    <label locale="en">CheckStatus</label>
+                </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="sf153"/>
+            <topicDocumentation name="sf33"/>
+            <topicDocumentation name="sf20"/>
+            <topicDocumentation name="sf56"/>
+            <topicDocumentation name="sf85">
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="sf112"/>
+            <topicDocumentation name="sf60"/>
+            <topicDocumentation name="sf62"/>
+            <topicDocumentation name="sf121"/>
+            <topicDocumentation name="sf122">
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="sf124">
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="sf88">
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="sf89"/>
+            <topicDocumentation name="sf91"/>
+            <topicDocumentation name="sf136">
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="sf137"/>
+            <topicDocumentation name="sf133">
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="sf135">
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="sf139">
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="sf141"/>
+            <topicDocumentation name="sf143">
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="sf192"/>
+            <topicDocumentation name="sf140"/>
+        </topicDocumentations>
+    </component>
+</processDocumentation>

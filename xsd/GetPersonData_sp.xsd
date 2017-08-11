@@ -1,0 +1,228 @@
+<schema targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/sp/GetPersonData" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:db="http://xmlns.oracle.com/pcbpel/adapter/db/sp/GetPersonData" elementFormDefault="qualified">
+   <element name="InputParameters">
+      <complexType>
+         <sequence>
+            <element name="P_PARTY_ID" type="decimal" db:index="1" db:type="NUMBER" minOccurs="0" nillable="true"/>
+            <element name="P_FETCH_PRIMARY_ORG" type="string" db:index="2" db:default="true" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_FETCH_PREFERRED_ADDR" type="string" db:index="3" db:default="true" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_FETCH_PREFERRED_EMAIL" type="string" db:index="4" db:default="true" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_FETCH_PREFERRED_PHONE" type="string" db:index="5" db:default="true" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_FETCH_CREDENTIAL" type="string" db:index="6" db:default="true" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_FETCH_SPECIALTY" type="string" db:index="7" db:default="true" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         </sequence>
+      </complexType>
+   </element>
+   <element name="OutputParameters">
+      <complexType>
+         <sequence>
+            <element name="X_PERSON_DATA" type="db:APPS.XXCAP_PERSON_REC_TYPE" db:index="8" db:type="Struct" minOccurs="0" nillable="true"/>
+            <element name="X_RETURN_STATUS" type="string" db:index="9" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="X_RETURN_MSG" type="string" db:index="10" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         </sequence>
+      </complexType>
+   </element>
+   <complexType name="APPS.XXCAP_CREDENTIAL_REC_TYPE">
+      <sequence>
+         <element name="ID" type="decimal" db:type="NUMBER" minOccurs="0" nillable="true"/>
+         <element name="VALUE" type="db:string60" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="STATUS" type="db:string30" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+      </sequence>
+   </complexType>
+   <complexType name="APPS.XXCAP_ADDR_PURPOSE_REC_TYPE">
+      <sequence>
+         <element name="PARTY_SITE_USE_ID" type="decimal" db:type="NUMBER" minOccurs="0" nillable="true"/>
+         <element name="SITE_USE_TYPE" type="db:string30" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="DESCRIPTION" type="db:string240" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+      </sequence>
+   </complexType>
+   <complexType name="APPS.XXCAP_ORGANIZATION_REC_TYPE">
+      <sequence>
+         <element name="PARTY_ID" type="decimal" db:type="NUMBER" minOccurs="0" nillable="true"/>
+         <element name="PARTY_NUMBER" type="db:string30" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="PARTY_NAME" type="db:string360" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="LONG_BUSINESS_NAME" type="db:string150" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="CLIA_NUMBER" type="db:string150" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="LAP_FLAG" type="db:string1" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="HU_FLAG" type="db:string1" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="ADDRESS" type="db:APPS.XXCAP_ADDRESS_REC_TYPE" db:type="Struct" minOccurs="0" nillable="true"/>
+         <element name="ORG_CONTACTS" type="db:APPS.XXCAP_ORG_CONTACT_TBL_TYPE" db:type="Array" minOccurs="0" nillable="true"/>
+      </sequence>
+   </complexType>
+   <complexType name="APPS.XXCAP_ADDR_PURPOSE_TBL_TYPE">
+      <sequence>
+         <element name="PURPOSES_ITEM" type="db:APPS.XXCAP_ADDR_PURPOSE_REC_TYPE" db:type="Struct" minOccurs="0" maxOccurs="unbounded" nillable="true"/>
+      </sequence>
+   </complexType>
+   <complexType name="APPS.XXCAP_SPECIALITY_REC_TYPE">
+      <sequence>
+         <element name="ID" type="decimal" db:type="NUMBER" minOccurs="0" nillable="true"/>
+         <element name="SPECIALITY_VALUE" type="db:string80" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="SPECIALITY_NAME" type="db:string160" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="YEARS_OF_EXPERIENCE" type="decimal" db:type="NUMBER" minOccurs="0" nillable="true"/>
+         <element name="CURRENTLY_TESTING_FLAG" type="db:string1" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="ABILITY_TO_INSPECT_RANK" type="decimal" db:type="NUMBER" minOccurs="0" nillable="true"/>
+         <element name="ABILITY_TO_INSPECT_DESC" type="db:string240" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="STATUS" type="db:string30" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+      </sequence>
+   </complexType>
+   <complexType name="APPS.XXCAP_PREFERRED_ADDR_REC_TYPE">
+      <sequence>
+         <element name="ADDRESS" type="db:APPS.XXCAP_ADDRESS_REC_TYPE" db:type="Struct" minOccurs="0" nillable="true"/>
+         <element name="INSTITUTION_REC" type="db:APPS.XXCAP_ORGANIZATION_REC_TYPE" db:type="Struct" minOccurs="0" nillable="true"/>
+      </sequence>
+   </complexType>
+   <complexType name="APPS.XXCAP_ORG_CONTACT_REC_TYPE">
+      <sequence>
+         <element name="ORG_CONTACT_ID" type="decimal" db:type="NUMBER" minOccurs="0" nillable="true"/>
+         <element name="ORG_CONTACT_ROLE" type="db:string60" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="CONTACT_PARTY_ID" type="decimal" db:type="NUMBER" minOccurs="0" nillable="true"/>
+         <element name="CONTACT_PARTY_NUMBER" type="db:string60" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="CONTACT_NAME" type="db:string360" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="EMAIL_ADDRESS" type="db:string360" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="EMAIL_FORMAT" type="db:string30" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="PHONE_LINE_TYPE" type="db:string30" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="PHONE_NUMBER_ALL" type="db:string60" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+      </sequence>
+   </complexType>
+   <complexType name="APPS.XXCAP_CREDENTIAL_TBL_TYPE">
+      <sequence>
+         <element name="CREDENTIALS_ITEM" type="db:APPS.XXCAP_CREDENTIAL_REC_TYPE" db:type="Struct" minOccurs="0" maxOccurs="unbounded" nillable="true"/>
+      </sequence>
+   </complexType>
+   <complexType name="APPS.XXCAP_PERSON_REC_TYPE">
+      <sequence>
+         <element name="PARTY_ID" type="decimal" db:type="NUMBER" minOccurs="0" nillable="true"/>
+         <element name="PARTY_NUMBER" type="db:string30" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="STATUS" type="db:string1" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="FIRST_NAME" type="db:string150" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="MIDDLE_NAME" type="db:string60" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="LAST_NAME" type="db:string150" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="NAME_SUFFIX" type="db:string30" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="NICK_NAME" type="db:string240" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="PERSON_TITLE" type="db:string30" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="DATE_OF_BIRTH" type="dateTime" db:type="DATE" minOccurs="0" nillable="true"/>
+         <element name="GENDER" type="db:string30" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="IS_MEMBER" type="db:string1" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="MEMBER_TYPE" type="db:string150" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="MEMBER_STATUS" type="db:string150" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="PRIMARY_INSTITUTION" type="db:APPS.XXCAP_ORGANIZATION_REC_TYPE" db:type="Struct" minOccurs="0" nillable="true"/>
+         <element name="ATTRIBUTE1" type="db:string150" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="ATTRIBUTE2" type="db:string150" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="ATTRIBUTE3" type="db:string150" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="ATTRIBUTE4" type="db:string150" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="ATTRIBUTE5" type="db:string150" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="ATTRIBUTE6" type="db:string150" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="ATTRIBUTE7" type="db:string150" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="ATTRIBUTE8" type="db:string150" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="ATTRIBUTE9" type="db:string150" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="ATTRIBUTE10" type="db:string150" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="ATTRIBUTE11" type="db:string150" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="PREFERRED_ADDRESS" type="db:APPS.XXCAP_PREFERRED_ADDR_REC_TYPE" db:type="Struct" minOccurs="0" nillable="true"/>
+         <element name="PREFERRED_EMAIL" type="db:APPS.XXCAP_PREFERRED_EMAIL_REC_TYPE" db:type="Struct" minOccurs="0" nillable="true"/>
+         <element name="PREFERRED_PHONE" type="db:APPS.XXCAP_PREFERRED_PHONE_REC_TYPE" db:type="Struct" minOccurs="0" nillable="true"/>
+         <element name="CREDENTIALS" type="db:APPS.XXCAP_CREDENTIAL_TBL_TYPE" db:type="Array" minOccurs="0" nillable="true"/>
+         <element name="SPECIALITIES" type="db:APPS.XXCAP_SPECIALITY_TBL_TYPE" db:type="Array" minOccurs="0" nillable="true"/>
+      </sequence>
+   </complexType>
+   <complexType name="APPS.XXCAP_PREFERRED_PHONE_REC_TYPE">
+      <sequence>
+         <element name="CONTACT_POINT_ID" type="decimal" db:type="NUMBER" minOccurs="0" nillable="true"/>
+         <element name="PHONE_COUNTRY_CODE" type="db:string10" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="PHONE_AREA_CODE" type="db:string10" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="PHONE_NUMBER" type="db:string60" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="PHONE_EXTENSION" type="db:string20" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="RAW_PHONE_NUMBER" type="db:string60" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="PHONE_NUMBER_ALL" type="db:string60" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="PHONE_LINE_TYPE" type="db:string30" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+      </sequence>
+   </complexType>
+   <complexType name="APPS.XXCAP_SPECIALITY_TBL_TYPE">
+      <sequence>
+         <element name="SPECIALITIES_ITEM" type="db:APPS.XXCAP_SPECIALITY_REC_TYPE" db:type="Struct" minOccurs="0" maxOccurs="unbounded" nillable="true"/>
+      </sequence>
+   </complexType>
+   <complexType name="APPS.XXCAP_ORG_CONTACT_TBL_TYPE">
+      <sequence>
+         <element name="ORG_CONTACTS_ITEM" type="db:APPS.XXCAP_ORG_CONTACT_REC_TYPE" db:type="Struct" minOccurs="0" maxOccurs="unbounded" nillable="true"/>
+      </sequence>
+   </complexType>
+   <complexType name="APPS.XXCAP_ADDRESS_REC_TYPE">
+      <sequence>
+         <element name="PARTY_SITE_ID" type="decimal" db:type="NUMBER" minOccurs="0" nillable="true"/>
+         <element name="LOCATION_ID" type="decimal" db:type="NUMBER" minOccurs="0" nillable="true"/>
+         <element name="COUNTRY" type="db:string60" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="ADDRESS1" type="db:string240" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="ADDRESS2" type="db:string240" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="ADDRESS3" type="db:string240" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="ADDRESS4" type="db:string240" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="CITY" type="db:string60" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="STATE" type="db:string60" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="PROVINCE" type="db:string60" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="COUNTY" type="db:string60" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="POSTALCODE" type="db:string60" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="ADDRESSNAME" type="db:string240" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="IDENTIFINGFLAG" type="db:string1" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="PREFERREDFLAG" type="db:string1" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="STATUS" type="db:string1" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="ISADDRESSVALIDATED" type="db:string1" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="PURPOSES" type="db:APPS.XXCAP_ADDR_PURPOSE_TBL_TYPE" db:type="Array" minOccurs="0" nillable="true"/>
+      </sequence>
+   </complexType>
+   <complexType name="APPS.XXCAP_PREFERRED_EMAIL_REC_TYPE">
+      <sequence>
+         <element name="CONTACT_POINT_ID" type="decimal" db:type="NUMBER" minOccurs="0" nillable="true"/>
+         <element name="EMAIL_ADDRESS" type="db:string360" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="EMAIL_FORMAT" type="db:string30" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+      </sequence>
+   </complexType>
+   <simpleType name="string30">
+      <restriction base="string">
+         <maxLength value="30"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="string1">
+      <restriction base="string">
+         <maxLength value="1"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="string150">
+      <restriction base="string">
+         <maxLength value="150"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="string60">
+      <restriction base="string">
+         <maxLength value="60"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="string240">
+      <restriction base="string">
+         <maxLength value="240"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="string360">
+      <restriction base="string">
+         <maxLength value="360"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="string10">
+      <restriction base="string">
+         <maxLength value="10"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="string20">
+      <restriction base="string">
+         <maxLength value="20"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="string80">
+      <restriction base="string">
+         <maxLength value="80"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="string160">
+      <restriction base="string">
+         <maxLength value="160"/>
+      </restriction>
+   </simpleType>
+</schema>

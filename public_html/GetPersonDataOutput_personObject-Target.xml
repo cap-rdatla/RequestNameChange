@@ -1,0 +1,69 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<cp:person xmlns:cp="http://services.cap.org/interfaces/myaccount/person" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://services.cap.org/interfaces/myaccount/person file:/C:/JDeveloper/mywork/MyAccountBPMApp_0913_02/RequestNameChange/xsd/person.xsd">
+   <comm:PartyID xmlns:comm="http://services.cap.org/interfaces/commontypes">1</comm:PartyID>
+   <comm:PartyNumber xmlns:comm="http://services.cap.org/interfaces/commontypes">string2</comm:PartyNumber>
+   <comm:Status xmlns:comm="http://services.cap.org/interfaces/commontypes">s</comm:Status>
+   <comm:FirstName xmlns:comm="http://services.cap.org/interfaces/commontypes">string6</comm:FirstName>
+   <comm:MiddleName xmlns:comm="http://services.cap.org/interfaces/commontypes">string8</comm:MiddleName>
+   <comm:LastName xmlns:comm="http://services.cap.org/interfaces/commontypes">string10</comm:LastName>
+   <comm:NameSuffix xmlns:comm="http://services.cap.org/interfaces/commontypes">string12</comm:NameSuffix>
+   <comm:NickName xmlns:comm="http://services.cap.org/interfaces/commontypes">string14</comm:NickName>
+   <comm:PersonTitle xmlns:comm="http://services.cap.org/interfaces/commontypes">string16</comm:PersonTitle>
+   <comm:Gender xmlns:comm="http://services.cap.org/interfaces/commontypes">string18</comm:Gender>
+   <comm:IsMember xmlns:comm="http://services.cap.org/interfaces/commontypes">s</comm:IsMember>
+   <comm:MemberType xmlns:comm="http://services.cap.org/interfaces/commontypes">string22</comm:MemberType>
+   <comm:MemberStatus xmlns:comm="http://services.cap.org/interfaces/commontypes">string24</comm:MemberStatus>
+   <comm:PrimaryInstitution xmlns:comm="http://services.cap.org/interfaces/commontypes">
+      <comm:InstitutionID>26</comm:InstitutionID>
+      <comm:InstitutionNumber>string27</comm:InstitutionNumber>
+      <comm:InstitutionName>string29</comm:InstitutionName>
+      <comm:InstitutionLBN>string31</comm:InstitutionLBN>
+      <comm:CLIANumber>string33</comm:CLIANumber>
+      <comm:LAPFlag>s</comm:LAPFlag>
+      <comm:HUFlag>s</comm:HUFlag>
+      <comm:Address>
+         <comm:Purposes/>
+      </comm:Address>
+   </comm:PrimaryInstitution>
+   <comm:Attribute1 xmlns:comm="http://services.cap.org/interfaces/commontypes">string39</comm:Attribute1>
+   <comm:Attribute2 xmlns:comm="http://services.cap.org/interfaces/commontypes">string41</comm:Attribute2>
+   <comm:Attribute3 xmlns:comm="http://services.cap.org/interfaces/commontypes">string43</comm:Attribute3>
+   <comm:Attribute4 xmlns:comm="http://services.cap.org/interfaces/commontypes">string45</comm:Attribute4>
+   <comm:Attribute5 xmlns:comm="http://services.cap.org/interfaces/commontypes">string47</comm:Attribute5>
+   <comm:Attribute6 xmlns:comm="http://services.cap.org/interfaces/commontypes">string49</comm:Attribute6>
+   <comm:Attribute7 xmlns:comm="http://services.cap.org/interfaces/commontypes">string51</comm:Attribute7>
+   <comm:Attribute8 xmlns:comm="http://services.cap.org/interfaces/commontypes">string53</comm:Attribute8>
+   <comm:Attribute9 xmlns:comm="http://services.cap.org/interfaces/commontypes">string55</comm:Attribute9>
+   <comm:Attribute10 xmlns:comm="http://services.cap.org/interfaces/commontypes">string57</comm:Attribute10>
+   <comm:Attribute11 xmlns:comm="http://services.cap.org/interfaces/commontypes">string59</comm:Attribute11>
+   <comm:PreferredAddress xmlns:comm="http://services.cap.org/interfaces/commontypes">
+      <comm:Address>
+         <comm:Purposes/>
+      </comm:Address>
+   </comm:PreferredAddress>
+   <comm:PreferredEmail xmlns:comm="http://services.cap.org/interfaces/commontypes">
+      <comm:ID>61</comm:ID>
+      <comm:EmailAddress>string62</comm:EmailAddress>
+      <comm:EmailFormat>string64</comm:EmailFormat>
+   </comm:PreferredEmail>
+   <comm:PreferredPhone xmlns:comm="http://services.cap.org/interfaces/commontypes">
+      <comm:ID>66</comm:ID>
+      <comm:CountryCode>string67</comm:CountryCode>
+      <comm:AreaCode>string69</comm:AreaCode>
+      <comm:Extension>string73</comm:Extension>
+      <comm:PhoneNumber>string71</comm:PhoneNumber>
+      <comm:RawPhoneNumber>string75</comm:RawPhoneNumber>
+      <comm:PhoneNumberAll>string77</comm:PhoneNumberAll>
+      <comm:PhoneLineType>string79</comm:PhoneLineType>
+   </comm:PreferredPhone>
+   <comm:Credentials xmlns:comm="http://services.cap.org/interfaces/commontypes">
+      <comm:Credential/>
+      <comm:Credential/>
+      <comm:Credential/>
+   </comm:Credentials>
+   <comm:Specialities xmlns:comm="http://services.cap.org/interfaces/commontypes">
+      <comm:Speciality/>
+      <comm:Speciality/>
+      <comm:Speciality/>
+   </comm:Specialities>
+</cp:person>

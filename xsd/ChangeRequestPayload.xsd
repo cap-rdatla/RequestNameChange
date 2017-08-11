@@ -1,0 +1,54 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:cp="http://services.cap.org/interfaces/myaccount/ChangeRequest"
+     xmlns:hdr="http://services.cap.org/interfaces/header" xmlns:comm="http://services.cap.org/interfaces/commontypes"
+     targetNamespace="http://services.cap.org/interfaces/myaccount/ChangeRequest" elementFormDefault="qualified"
+     attributeFormDefault="unqualified">
+    <annotation>
+        <documentation>ChangeRequest consists of all the data change request related elements used for CAP or Lab personnel to review and approve</documentation>
+    </annotation>
+    <import namespace="http://services.cap.org/interfaces/header" schemaLocation="oramds:/apps/cap/common/xsd/InterfaceHeader.xsd"/>
+    <import namespace="http://services.cap.org/interfaces/commontypes" schemaLocation="oramds:/apps/cap/common/xsd/Commontypes.xsd"/>
+    <element name="ChangeRequest">
+        <complexType>
+            <sequence>
+                <element ref="hdr:InterfaceHeader"/>
+                <element name="RequestCode" type="string"/>
+                <element name="RequestTitle" type="string" minOccurs="0"/>
+                <element name="Priority" type="comm:PriorityType" minOccurs="0">
+                    <annotation>
+                        <documentation>Priorty: 1 (Highest); 2 (High); 3 (Normal); 4 (Low); 5 (Lowest)</documentation>
+                    </annotation>
+                </element>
+                <element name="RequestDate" type="dateTime"/>
+                <element name="RequestedBy" type="string"/>
+                <element name="Action" type="comm:ActionType" minOccurs="0">
+                    <annotation>
+                        <documentation>Action:  update, create, or delete. All in lower case</documentation>
+                    </annotation>
+                </element>
+                <element name="SendData">
+                    <complexType>
+                        <sequence>
+                            <element name="PartyId" type="decimal"/>
+                            <element name="DataItem" type="cp:DataItemType" minOccurs="0" maxOccurs="unbounded"/>
+                        </sequence>
+                    </complexType>
+                </element>
+                <element name="Comments" type="string" minOccurs="0"/>
+                <element name="Person" type="comm:PersonBaseType" minOccurs="0">
+                  <annotation>
+                    <documentation>Person data will be populated by GetPersonData servcie in BPM</documentation>
+                  </annotation>
+                </element>
+            </sequence>
+        </complexType>
+    </element>
+    <complexType name="DataItemType">
+        <sequence>
+            <element name="Name" type="string" minOccurs="0"/>
+            <element name="OldValue" type="string" minOccurs="0"/>
+            <element name="NewValue" type="string" minOccurs="0"/>
+            <element name="DataType" type="comm:DataTypeEnum" minOccurs="0"/>
+        </sequence>
+    </complexType>
+</schema>
